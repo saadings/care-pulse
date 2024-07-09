@@ -27,7 +27,7 @@ interface AppointmentFormProps {
   patientId: string;
   type: FormType;
   appointment?: Appointment;
-  setOpen: (open: boolean) => void;
+  setOpen?: (open: boolean) => void;
 }
 
 const AppointmentForm = ({
