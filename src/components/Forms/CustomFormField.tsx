@@ -20,6 +20,18 @@ import {
 import { E164Number } from "libphonenumber-js/core";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import {
+  Select,
+  SelectContent,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import { Textarea } from "../ui/textarea";
+import { Checkbox } from "../ui/checkbox";
+import { Label } from "../ui/label";
+
+import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface CustomProps<T extends FieldValues> {
   fieldType: FieldType;
@@ -33,7 +45,9 @@ interface CustomProps<T extends FieldValues> {
   dateFormat?: string;
   showTimeSelect?: boolean;
   children?: React.ReactNode;
-  renderSkeleton?: (field: any) => React.ReactNode;
+  renderSkeleton?: (
+    field: ControllerRenderProps<T, FieldPath<T>>,
+  ) => React.ReactNode;
 }
 
 const RenderField = <T extends FieldValues>({
@@ -43,7 +57,19 @@ const RenderField = <T extends FieldValues>({
   field: ControllerRenderProps<T, FieldPath<T>>;
   props: CustomProps<T>;
 }) => {
-  const { fieldType, iconSrc, iconAlt, placeholder, label } = props;
+  const {
+    fieldType,
+    iconSrc,
+    iconAlt,
+    placeholder,
+    label,
+    name,
+    showTimeSelect,
+    dateFormat,
+    renderSkeleton,
+    disabled,
+    children,
+  } = props;
 
   switch (fieldType) {
     case FieldType.INPUT:
@@ -69,6 +95,18 @@ const RenderField = <T extends FieldValues>({
         </div>
       );
 
+    case FieldType.TEXT_AREA:
+      return (
+        <FormControl>
+          <Textarea
+            placeholder={placeholder}
+            {...field}
+            className="shad-textArea"
+            disabled={disabled}
+          />
+        </FormControl>
+      );
+
     case FieldType.PHONE_INPUT:
       return (
         <FormControl>
@@ -81,6 +119,72 @@ const RenderField = <T extends FieldValues>({
             onChange={field.onChange}
             className="input-phone"
           />
+        </FormControl>
+      );
+
+    case FieldType.DATE_PICKER:
+      return (
+        <div className="flex rounded-md border border-dark-500 bg-dark-400">
+          <Image
+            src="/assets/icons/calendar.svg"
+            height={24}
+            width={24}
+            alt="calender"
+            className="ml-2"
+          />
+
+          <FormControl>
+            <ReactDatePicker
+              placeholderText={placeholder}
+              showTimeSelect={showTimeSelect ?? false}
+              selected={field.value}
+              onChange={(date) => field.onChange(date)}
+              timeInputLabel="Time:"
+              dateFormat={dateFormat ?? "MM/dd/yyyy"}
+              wrapperClassName="date-picker"
+              endDate={new Date()}
+            />
+          </FormControl>
+        </div>
+      );
+
+    case FieldType.SELECT:
+      return (
+        <FormControl>
+          <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <FormControl>
+              <SelectTrigger className="shad-select-trigger">
+                <SelectValue
+                  placeholder={placeholder}
+                  className="text-dark-500"
+                />
+              </SelectTrigger>
+            </FormControl>
+
+            <SelectContent className="shad-select-content">
+              {children}
+            </SelectContent>
+          </Select>
+        </FormControl>
+      );
+
+    case FieldType.SKELETON:
+      return renderSkeleton ? renderSkeleton(field) : null;
+
+    case FieldType.CHECKBOX:
+      return (
+        <FormControl>
+          <div className="flex items-center gap-4">
+            <Checkbox
+              id={name}
+              checked={field.value}
+              onCheckedChange={field.onChange}
+              className={`${field.value && "bg-green-500"}`}
+            />
+            <Label htmlFor={name} className="checkbox-label">
+              {label}
+            </Label>
+          </div>
         </FormControl>
       );
 

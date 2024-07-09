@@ -1,3 +1,4 @@
+import { FormType } from "@/enums/form";
 import { z } from "zod";
 
 export const UserFormValidation = z.object({
@@ -21,7 +22,7 @@ export const PatientFormValidation = z.object({
     .string()
     .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
   birthDate: z.coerce.date(),
-  gender: z.enum(["Male", "Female", "Other"]),
+  gender: z.enum(["male", "female", "other"]),
   address: z
     .string()
     .min(5, "Address must be at least 5 characters")
@@ -106,11 +107,11 @@ export const CancelAppointmentSchema = z.object({
     .max(500, "Reason must be at most 500 characters"),
 });
 
-export function getAppointmentSchema(type: string) {
+export function getAppointmentSchema(type: FormType) {
   switch (type) {
-    case "create":
+    case FormType.CREATE:
       return CreateAppointmentSchema;
-    case "cancel":
+    case FormType.CANCEL:
       return CancelAppointmentSchema;
     default:
       return ScheduleAppointmentSchema;

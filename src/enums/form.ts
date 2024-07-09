@@ -7,3 +7,9 @@ export enum FieldType {
   SELECT = "select",
   SKELETON = "skeleton",
 }
+
+export enum FormType {
+  CREATE = "create",
+  CANCEL = "cancel",
+  SCHEDULE = "schedule",
+}

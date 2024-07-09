@@ -69,7 +69,7 @@
   }
 
   .copyright {
-    @apply text-14-regular text-dark-600 justify-items-end text-center xl:text-left;
+    @apply text-14-regular justify-items-end text-center text-dark-600 xl:text-left;
   }
 
   /* ==== SUCCESS */
@@ -78,12 +78,12 @@
   }
 
   .request-details {
-    @apply border-dark-400 flex w-full flex-col items-center gap-8 border-y-2 py-8 md:w-fit md:flex-row;
+    @apply flex w-full flex-col items-center gap-8 border-y-2 border-dark-400 py-8 md:w-fit md:flex-row;
   }
 
   /* ===== ADMIN */
   .admin-header {
-    @apply bg-dark-200 sticky top-3 z-20 mx-3 flex items-center justify-between rounded-2xl px-[5%] py-5 shadow-lg xl:px-12;
+    @apply sticky top-3 z-20 mx-3 flex items-center justify-between rounded-2xl bg-dark-200 px-[5%] py-5 shadow-lg xl:px-12;
   }
 
   .admin-main {
@@ -96,20 +96,20 @@
 
   /* ==== FORM */
   .radio-group {
-    @apply border-dark-500 bg-dark-400 flex h-full flex-1 items-center gap-2 rounded-md border border-dashed p-3;
+    @apply flex h-full flex-1 items-center gap-2 rounded-md border border-dashed border-dark-500 bg-dark-400 p-3;
   }
 
   .checkbox-label {
-    @apply text-dark-700 cursor-pointer text-sm font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
+    @apply cursor-pointer text-sm font-medium text-dark-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
   }
 
   /* ==== File Upload */
   .file-upload {
-    @apply text-12-regular border-dark-500 bg-dark-400 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-md border border-dashed p-5;
+    @apply text-12-regular flex cursor-pointer flex-col items-center justify-center gap-3 rounded-md border border-dashed border-dark-500 bg-dark-400 p-5;
   }
 
   .file-upload_label {
-    @apply text-dark-600 flex flex-col justify-center gap-2 text-center;
+    @apply flex flex-col justify-center gap-2 text-center text-dark-600;
   }
 
   /* ==== Stat Card */
@@ -124,7 +124,7 @@
 
   /* Data Table */
   .data-table {
-    @apply border-dark-400 z-10 w-full overflow-hidden rounded-lg border shadow-lg;
+    @apply z-10 w-full overflow-hidden rounded-lg border border-dark-400 shadow-lg;
   }
 
   .table-actions {
@@ -191,7 +191,7 @@
   }
 
   .shad-gray-btn {
-    @apply border-dark-500 bg-dark-400 cursor-pointer border text-white !important;
+    @apply cursor-pointer border border-dark-500 bg-dark-400 text-white !important;
   }
 
   .shad-input-label {
@@ -199,15 +199,15 @@
   }
 
   .shad-input {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+    @apply h-11 border-dark-500 bg-dark-400 placeholder:text-dark-600 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
   }
 
   .shad-input-icon {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+    @apply h-11 border-dark-500 bg-dark-400 placeholder:text-dark-600 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
   }
 
   .shad-textArea {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+    @apply border-dark-500 bg-dark-400 placeholder:text-dark-600 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
   }
 
   .shad-combobox-item {
@@ -219,15 +219,15 @@
   }
 
   .shad-select-trigger {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus:ring-0 focus:ring-offset-0 !important;
+    @apply h-11 border-dark-500 bg-dark-400 placeholder:text-dark-600 focus:ring-0 focus:ring-offset-0 !important;
   }
 
   .shad-select-content {
-    @apply bg-dark-400 border-dark-500 !important;
+    @apply border-dark-500 bg-dark-400 !important;
   }
 
   .shad-dialog {
-    @apply bg-dark-400 border-dark-500 !important;
+    @apply border-dark-500 bg-dark-400 !important;
   }
 
   .shad-dialog button {
@@ -243,11 +243,11 @@
   }
 
   .shad-table-row-header {
-    @apply border-dark-400 text-light-200 border-b hover:bg-transparent !important;
+    @apply border-b border-dark-400 text-light-200 hover:bg-transparent !important;
   }
 
   .shad-table-row {
-    @apply border-dark-400 text-light-200 border-b !important;
+    @apply border-b border-dark-400 text-light-200 !important;
   }
 
   .shad-otp {
@@ -255,11 +255,11 @@
   }
 
   .shad-otp-slot {
-    @apply text-36-bold border-dark-500 flex size-16 justify-center gap-4 rounded-lg border !important;
+    @apply text-36-bold flex size-16 justify-center gap-4 rounded-lg border border-dark-500 !important;
   }
 
   .shad-alert-dialog {
-    @apply bg-dark-400 border-dark-500 space-y-5 outline-none !important;
+    @apply space-y-5 border-dark-500 bg-dark-400 outline-none !important;
   }
 
   .shad-sheet-content button {
@@ -268,12 +268,12 @@
 
   /* =====  REACT PHONE NUMBER INPUT OVERRIDES */
   .input-phone {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 mt-2 h-11 rounded-md border px-3 text-sm !important;
+    @apply mt-2 h-11 rounded-md border border-dark-500 bg-dark-400 px-3 text-sm placeholder:text-dark-600 !important;
   }
 
   /* =====  REACT DATE PICKER OVERRIDES */
   .date-picker {
-    @apply placeholder:text-dark-600 text-14-medium h-11 w-full overflow-hidden rounded-md border-transparent px-3 outline-none !important;
+    @apply text-14-medium h-11 w-full overflow-hidden rounded-md border-transparent px-3 outline-none placeholder:text-dark-600 !important;
   }
 }
 
