@@ -1,7 +1,7 @@
 
 <div align="center">
   <br />
-    <a href="https://youtu.be/lEflo_sc82g?feature=shared" target="_blank">
+    <a href="https://carepulse-app.saadings.me" target="_blank">
       <img src="https://carepulse-app.saadings.me/assets/icons/logo-full.svg" alt="Project Banner">
     </a>
   <br />
